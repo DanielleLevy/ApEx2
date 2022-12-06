@@ -8,6 +8,9 @@ add_executable(.
         "Header.h"
         "OutputFunctions.cpp"
         "Main.cpp"
-        "Validation.cpp"
         "Distance.cpp"
-        "Distance.h" Sample.cpp Sample.h)
+        "Distance.h"
+        "Sample.cpp"
+        "Sample.h"
+        "Validations.cpp"
+        "Validations.h" cmake-build-debug/ReadFromFile.cpp)

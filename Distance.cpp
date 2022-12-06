@@ -5,22 +5,22 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include "Distance.h"
 using namespace std;
 
-class Distance{/**
+/**
  * The class contains all the distance functions.
     The variable choice contains the user's choice of which insect function to use and is initialized in the constructor.
  */
-public:/**
- * The public functions are actually the constructor and the function that calls the distance functions
- */
-    string choice;
-    Distance(string choiceFromTheUser){/**
+
+Distance::Distance( string choiceFromTheUser){/**
  * constructor. Accepts the user's choice and initializes it in a variable
  */
         choice=choiceFromTheUser;
     }
-    double Calc(vector <double> a,  vector <double> b){/**
+
+
+double Distance::Calc(vector <double> a,  vector <double> b){/**
  * A calculator function, receiving 2 vectors for calculation and according to the user's choice, sends the vectors to the various functions and returns the answer.
  */
         if (choice=="AUC"){
@@ -38,9 +38,10 @@ public:/**
         if (choice=="MIN"){
             return minkowskiDistance(a,b);
         }
+        return -1;
     }
-private:
-    double canberraD(vector <double> a,  vector <double> b ){
+
+double Distance::canberraD(vector <double> a,  vector <double> b ){
         /**
          * the function gets 2 vector in the same size and calculates their's canberra distance
          */
@@ -55,7 +56,7 @@ private:
     }
 
 
-    double chebyshec (vector <double> a, vector <double> b ){
+double Distance::chebyshec (vector <double> a, vector <double> b ){
         /**
           * the function gets 2 vector in the same size and calculates their's canberra distance
          */
@@ -73,7 +74,7 @@ private:
     }
 
 
-    double minkowskiDistance(vector <double> x,  vector <double> y ) {
+double Distance::minkowskiDistance(vector <double> x,  vector <double> y ) {
         /**
          * this function gets 2 vectors in the same size and calculates their Minkowski distance
          */
@@ -91,7 +92,7 @@ private:
     }
 
 
-    double manhattanDistance(vector <double> x,  vector <double> y ) {
+double Distance::manhattanDistance(vector <double> x,  vector <double> y ) {
         /**
          * this function gets 2 vectors in the same size and calculates their Manhattan distance
          */
@@ -106,7 +107,7 @@ private:
     }
 
 
-    double euclideanDistance(vector <double> x,  vector <double> y ) {
+double Distance::euclideanDistance(vector <double> x,  vector <double> y ) {
         /**
          * this function gets 2 vectors in the same size and calculates their Euclidean distance
          */
@@ -121,4 +122,5 @@ private:
         finalAnswer = sqrt(sum);
         return finalAnswer;
     }
-};
+
+
