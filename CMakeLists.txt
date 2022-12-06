@@ -12,5 +12,4 @@ add_executable(.
         "Distance.h"
         "Sample.cpp"
         "Sample.h"
-        "Validations.cpp"
-        "Validations.h" cmake-build-debug/ReadFromFile.cpp)
+        "InputAndValidation.cpp")

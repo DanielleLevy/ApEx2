@@ -8,7 +8,7 @@
 #include "Header.h"
 using namespace std;
 
-int main(){
+int main(int argc, char *argv[]){
 //    vector <double> a; //init vector number one
 //    vector <double> b; //init vector number two
 //    string vectorOne; // init string to get the input
@@ -29,6 +29,9 @@ int main(){
 //        cout<<"Input check failed, please try again"<<endl;
 //        exit(0);
 //    }
+cout<<"fff"<<endl;
+string path=argv[0];
+ReadFromFile(path);
 return 0;
 
 }

@@ -15,9 +15,9 @@
 using namespace std;
 
 
-
+int ReadFromFile(string fileName);
 vector <double> CreateVector(string str, char seprate,
                              vector<double> v);
 int CheckInput(vector <double> vector1, vector <double> vector2);
 void printFun(double number);
-int main();
+int main(int argc, char *argv[]);

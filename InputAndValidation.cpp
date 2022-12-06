@@ -3,13 +3,25 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <cstdlib>
 #include <string>
+#include "Sample.h"
 using namespace std;
-class Validations{
 
-    vector <double> CreateVector(string str, char seprate,
+int ReadFromFile(string fileName){
+    fstream MyReadFile(fileName);
+    string myText;
+
+    while (getline (MyReadFile, myText)) {
+        // Output the text from the file
+        cout << myText;
+    }
+    return 0;
+}
+
+vector <double> CreateVector(string str, char seprate,
                                  vector<double> v) {
         /*this function get create a vector from the input
          * input: str- the line that the user put
@@ -78,4 +90,4 @@ class Validations{
         return 0;
     }
 
-};
+
