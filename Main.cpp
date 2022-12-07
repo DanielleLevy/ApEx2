@@ -2,9 +2,6 @@
 // Created by danie on 01/12/2022.
 //
 
-#include <vector>
-#include <iostream>
-#include <cstdlib>
 #include "Header.h"
 using namespace std;
 
@@ -29,9 +26,16 @@ int main(int argc, char *argv[]){
 //        cout<<"Input check failed, please try again"<<endl;
 //        exit(0);
 //    }
-cout<<"fff"<<endl;
-string path=argv[0];
-ReadFromFile(path);
+string path=argv[1];
+string vector=argv[2];
+vector<Sample> db= ReadFromFile(path);
+for(int i =0;i<db.size();i++)
+    {
+    cout<<db[i].label <<endl;
+    for(int j =0;j<db[i].deatils.size();j++){
+        cout<<db[i].deatils[j] <<endl;
+    }
+    }
 return 0;
 
 }

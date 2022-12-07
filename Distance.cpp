@@ -2,9 +2,7 @@
 // Created by danie on 04/12/2022.
 //
 
-#include <iostream>
-#include <vector>
-#include <cmath>
+
 #include "Distance.h"
 using namespace std;
 

@@ -1,8 +1,6 @@
 //
 // Created by danie on 01/12/2022.
 //
-#include <iostream>
-#include <cmath>
 #include "Header.h"
 
 void printFun(double number)

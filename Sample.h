@@ -10,11 +10,10 @@ using namespace std;
 
 class Sample {
 public:
-    string type;
     int vectorSize;
     vector <double> deatils;
     string label;
-    Sample(string typeFromUser,int size, vector <double> a, string l);
+    Sample(int size, vector <double> a, string l);
 };
 
 

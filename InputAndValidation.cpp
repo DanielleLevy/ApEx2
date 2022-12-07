@@ -2,34 +2,57 @@
 // Created by danie on 06/12/2022.
 //
 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <cstdlib>
-#include <string>
-#include "Sample.h"
+
+#include "Header.h"
 using namespace std;
 
-int ReadFromFile(string fileName){
-    fstream MyReadFile(fileName);
-    string myText;
+vector<Sample> ReadFromFile(string fileName){
+    vector<Sample> db;
+    vector<string> row;
+    vector<double> detail;
+    string line, word,label;
+    int size, startSize,counter=0;
+    fstream file (fileName.c_str(), ios::in);
+    if(file.is_open())
+    {
+        while(getline(file, line))
+        {
+            row.clear();
+            detail.clear();
+            stringstream str(line);
 
-    while (getline (MyReadFile, myText)) {
-        // Output the text from the file
-        cout << myText;
+            while(getline(str, word, ','))
+                row.push_back(word);
+            size= row.size()-1;
+            if(counter==0){
+                startSize=size;
+            }
+            if(startSize!=size){
+                cout<<"The table contains vectors of different length, try another table."<<endl;
+                exit(0);
+            }
+            label=row.back();
+            for (int i=0;i<row.size()-1;i++){
+                detail.push_back(stod(row[i]));
+            }
+            Sample a= Sample(size,detail,label);
+            db.push_back(a);
+            counter++;
+        }
+        return db;
     }
-    return 0;
+    else
+        cout<<"Could not open the file\n";
+    return db;
 }
-
-vector <double> CreateVector(string str, char seprate,
-                                 vector<double> v) {
+vector <double> CreateVector(string str, char seprate) {
         /*this function get create a vector from the input
          * input: str- the line that the user put
          *        seprate- A character that tells us how the numbers are separated
-         *        v- empty vector
          * output: vector full with numbers, if the input was ok*/
 
-        if(str.size()==0){      //check if the str empty
+        vector<double> v;
+        if(str.size()==0){//check if the str empty
             cout<<"you should insert numbers only"<<endl;
             exit(0);
         }
@@ -38,8 +61,8 @@ vector <double> CreateVector(string str, char seprate,
         for (int i=0;i<str.size();i++){     // Go through each character in the string
             if(isalpha(str[i]) ){           //Checks if the character is a letter
                 cout<<"you should insert numbers only"<<endl;
+                cout<<str[i];
                 exit(0);
-
             }
             if (str[i]!=seprate){       //Checks whether the character isn't the separator character (in this case a space)
                 number=number+str[i];   //If we haven't reached the separator character, it adds the character to the number
@@ -75,14 +98,14 @@ vector <double> CreateVector(string str, char seprate,
         return v;   //Returning the vector
     }
 
-    int CheckInput(vector <double> vector1, vector <double> vector2){
-        //The function receives 2 vectors and performs input tests on them
-        if (vector1.size()!=vector2.size()){
-            //If the vectors are not the same size
-            cout<<"you should insert 2 vectors in the same size "<<endl;
+    int CheckInput(vector <double> vector1,int size){
+        //The function receives vector and the expected size of the vector
+        if (vector1.size()!=size){
+            //The vector is not the required size
+            cout<<"you should insert a vector at size: " << size <<endl;
             return -1;
         }
-        if (vector1.size()==0 or vector2.size()==0){
+        if (vector1.size()==0){
             //If the magnitude of one of the vectors is equal to 0
             cout<<"vector size is 0, The vector must contain at least one number  "<<endl;
             return -1;

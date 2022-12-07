@@ -6,6 +6,7 @@
 #define EX2_DISTANCE_H
 #include <iostream>
 #include <vector>
+#include <cmath>
 using namespace std;
 
 

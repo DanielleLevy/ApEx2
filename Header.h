@@ -7,17 +7,20 @@
 
 #endif //EX2_HEADER_H
 
-
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <cstdlib>
 #include <string>
+#include <sstream>
+#include <string>
+#include <cmath>
+#include "Sample.h"
 using namespace std;
 
 
-int ReadFromFile(string fileName);
-vector <double> CreateVector(string str, char seprate,
-                             vector<double> v);
-int CheckInput(vector <double> vector1, vector <double> vector2);
+vector<Sample> ReadFromFile(string fileName);
+vector <double> CreateVector(string str, char seprate);
+int CheckInput(vector <double> vector1,int size);
 void printFun(double number);
 int main(int argc, char *argv[]);
