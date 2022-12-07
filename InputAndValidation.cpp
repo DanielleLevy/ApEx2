@@ -7,41 +7,52 @@
 using namespace std;
 
 vector<Sample> ReadFromFile(string fileName){
-    vector<Sample> db;
-    vector<string> row;
-    vector<double> detail;
+    /**
+     * The function receives the name of the file and reads from it.
+     * The function returns a vector of examples where each is an instance of the classifier.
+     */
+    vector<Sample> db; //The vector that is finally returned
+    vector<string> row; //A vector that holds each line in the file.
+    vector<double> detail; //A vector that will hold the numbers for each example.
     string line, word,label;
     int size, startSize,counter=0;
     fstream file (fileName.c_str(), ios::in);
     if(file.is_open())
     {
+        //Checks if the file can be opened
         while(getline(file, line))
         {
-            row.clear();
-            detail.clear();
+            //Reads line by line from the file.
+            row.clear();    //Clearing the vectors from the previous row.
+            detail.clear(); //Clearing the vectors from the previous row.
             stringstream str(line);
-
             while(getline(str, word, ','))
+                //Inserts each word in the line as a variable in the vector.
                 row.push_back(word);
-            size= row.size()-1;
+            size= row.size()-1; //Subtracts the last value from the size and this is the size of the measurements.
             if(counter==0){
+                //Checks if this is the first vector, if so saves its size and compares it with the size of all the other vectors in the file.
                 startSize=size;
             }
             if(startSize!=size){
-                cout<<"The table contains vectors of different length, try another table."<<endl;
+                //If a vector is found that does not match in size, the program prints an error and exits.
+                cout<<"The file contains vectors of different length, try another file."<<endl;
                 exit(0);
             }
-            label=row.back();
+            label=row.back();   //Saves the label.
             for (int i=0;i<row.size()-1;i++){
+                //Converts the vector from a string to double.
                 detail.push_back(stod(row[i]));
             }
+            //Generates an example and puts it in the examples vector.
             Sample a= Sample(size,detail,label);
             db.push_back(a);
-            counter++;
+            counter++;  //Raises the counter
         }
         return db;
     }
     else
+        //If the file does not open
         cout<<"Could not open the file\n";
     return db;
 }
