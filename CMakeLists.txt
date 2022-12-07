@@ -4,7 +4,7 @@ project(EX2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(.
+add_executable(EX2
         "Header.h"
         "OutputFunctions.cpp"
         "Main.cpp"
