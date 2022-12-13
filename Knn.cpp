@@ -22,7 +22,7 @@ Knn::Knn (vector<Sample> db, string distance, int k, vector<double> vectorFromUs
      * the database, the type of the distance function, the K neighbors and the vector.
      */
     theDb=db;
-    kindDistance=distance;
+    typeDistance=distance;
     theK=k;
     theVectorFromUser=vectorFromUser;
 }
@@ -39,7 +39,7 @@ string Knn::findTheLabel (){
     // between the sample and the given vector and insert it into the distances vector:
     for (int i=0; i<theDb.size();i++){
         double distance2 = 0;
-        Distance distance1(kindDistance);
+        Distance distance1(typeDistance);
         distance2 = distance1.Calc(theVectorFromUser, theDb[i].deatils);
         allTheDistances.push_back(make_pair(distance2, theDb[i]));
     }

@@ -12,6 +12,8 @@ int main(int argc, char *argv[]) {
     string path = argv[2];
     string distance = argv[3];
 
+    argumentsCheck(k,path,distance);
+
     vector<Sample> db = ReadFromFile(
             path);  //Sends the file name of a function that reads from it and returns a vector of samples.
     string vectorFromUser;
@@ -38,3 +40,4 @@ int main(int argc, char *argv[]) {
 
     }
 }
+

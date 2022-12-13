@@ -12,7 +12,7 @@ using namespace std;
 class Knn {
 public:
     vector<Sample> theDb;
-    string kindDistance;
+    string typeDistance;
     int theK;
     vector<double> theVectorFromUser;
     Knn (vector<Sample> db, string distance, int k, vector<double> vectorFromUser);

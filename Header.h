@@ -23,4 +23,5 @@ vector<Sample> ReadFromFile(string fileName);
 vector <double> CreateVector(string str, char seprate);
 int CheckInput(vector <double> vector1,int size);
 void printFun(double number);
+void argumentsCheck(int k, string path, string distance);
 int main(int argc, char *argv[]);
