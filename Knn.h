@@ -8,6 +8,11 @@ using namespace std;
 #include "Sample.h"
 #include <iostream>
 #include <vector>
+#include "Distance.h"
+#include <utility>
+#include <iostream>
+#include <map>
+
 
 class Knn {
 public:

@@ -16,7 +16,8 @@ vector<Sample> ReadFromFile(string fileName){
     vector<double> detail; //A vector that will hold the numbers for each example.
     string line, word,label;
     int size, startSize,counter=0;
-    fstream file (fileName.c_str(), ios::in);
+    string nameFile="../"+fileName;
+    fstream file (nameFile, ios::in);
     if(file.is_open())
     {
         //Checks if the file can be opened

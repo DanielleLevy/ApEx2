@@ -2,14 +2,8 @@
 // Created by Or Gabay on 12/12/2022.
 //
 using namespace std;
-#include "Sample.h"
-#include <iostream>
-#include <vector>
+
 #include "Knn.h"
-#include "Distance.h"
-#include <utility>
-#include <iostream>
-#include <map>
 
 /**
 * The KNN class which contains the details of the current KNN problem and its solution algorithm
