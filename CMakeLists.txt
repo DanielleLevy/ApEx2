@@ -12,4 +12,4 @@ add_executable(EX2
         "Distance.h"
         "Sample.cpp"
         "Sample.h"
-        "InputAndValidation.cpp")
+        "InputAndValidation.cpp" Knn.cpp)
