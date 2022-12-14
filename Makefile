@@ -1,5 +1,5 @@
 a.out: Main.o Distance.o InputAndValidation.o Knn.o Sample.o
-	g++ -std=c++11 main.o Data.o KNN.o Calculator.o -o a.out
+	g++ -std=c++11 Main.o Distance.o InputAndValidation.o Knn.o Sample.o -o a.out
 
 Main.o:
 	g++ -std=c++11 -c Main.cpp Header.h Knn.h
