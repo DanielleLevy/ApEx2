@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     string path = argv[2];
     string distance = argv[3];
 
-    argumentsCheck(k,path,distance);
+    argumentsCheck(k,distance);
 
 //Sends the file name of a function that reads from it and returns a vector of samples:
     vector<Sample> db = ReadFromFile(path);
