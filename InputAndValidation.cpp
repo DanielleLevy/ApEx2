@@ -132,15 +132,11 @@ vector <double> CreateVector(string str, char seprate) {
         return 0;
     }
 
-void argumentsCheck(int k, string path, string distance) {
+void argumentsCheck(int k, string distance) {
     // Checking input on K. K must be a positive integer,
     // otherwise you will print an error message and exit the program:
     if(k < 1 ) { cout << "Arguments check failed, please try again"; exit(0); }
 
-    // Checking input on the tagged vector file, it must be one of the three given files.
-    // Otherwise, you will print an error message and exit the program:
-    if(path != "beans_Classified.csv" && path != "iris_classified.csv" && path != "wine_Classified.csv") {
-        cout << "Arguments check failed, please try again"; exit(0); }
 
     // Checking input on the distance function type. It must be one of the five known functions.
     // Otherwise, you will print an error message and exit the program:
