@@ -8,8 +8,9 @@ write the following in the terminal , after each one press enter:
 3. make
 
 ## How to run:
-1. upload your classified file to ApEx2
-2. write in command line:  ./a.out k filename.csv distance
+1. make sure youre in ApEx2. if not write cd ApEx2
+2. write :
+./a.out k pathfile distance
 3. press enter
 4. write the vector in command line
 5. press enter
