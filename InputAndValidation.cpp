@@ -43,7 +43,15 @@ vector<Sample> ReadFromFile(string fileName){
             label=row.back();   //Saves the label.
             for (int i=0;i<row.size()-1;i++){
                 //Converts the vector from a string to double.
-                detail.push_back(stod(row[i]));
+                try{
+                    //input check if its contains string
+                     double value=stod(row[i]);
+                    detail.push_back(value);
+                }
+                catch(...){
+                    cout<<"the vector should contain numbers only, try another file"<<endl;
+                    exit(0);
+                }
             }
             //Generates an example and puts it in the examples vector.
             Sample a= Sample(size,detail,label);
