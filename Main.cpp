@@ -14,15 +14,20 @@ int main(int argc, char *argv[]) {
 
     argumentsCheck(k,path,distance);
 
-    vector<Sample> db = ReadFromFile(
-            path);  //Sends the file name of a function that reads from it and returns a vector of samples.
+//Sends the file name of a function that reads from it and returns a vector of samples:
+    vector<Sample> db = ReadFromFile(path);
+    // A test that verifies that we are not looking for a number of neighbors K that
+    // is greater than the number of samples that exist in the file:
+    if (k>db.size()) { cout << "Arguments check failed, please try again"; exit(0); }
+
     string vectorFromUser;
     if (db.empty()) {
-        //Checks if the file is not empty
+        //Checks if the file is not empty:
         cout << "Inserting an empty file! Try again next time." << endl;
         exit(0);
     } else {
-        int size = db[0].vectorSize;    //Saves the size of the vectors in the file for input checks
+        //Saves the size of the vectors in the file for input checks:
+        int size = db[0].vectorSize;
         while (true) {
             //Receives vectors from the user and sends them to input tests and the KNN
             getline(cin, vectorFromUser);
