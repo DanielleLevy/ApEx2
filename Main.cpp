@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     argumentsCheck(k,distance);
 
 //Sends the file name of a function that reads from it and returns a vector of samples:
-    vector<Sample> db = ReadFromFile(path);
+    vector<Sample> db = readFromFile(path);
     // A test that verifies that we are not looking for a number of neighbors K that
     // is greater than the number of samples that exist in the file:
     if (k>db.size()) { cout << "Arguments check failed, please try again"; exit(0); }
@@ -31,8 +31,8 @@ int main(int argc, char *argv[]) {
         while (true) {
             //Receives vectors from the user and sends them to input tests and the KNN
             getline(cin, vectorFromUser);
-            vector<double> a = CreateVector(vectorFromUser, ' ');
-            if (CheckInput(a, size) != -1) {
+            vector<double> a = createVector(vectorFromUser, ' ');
+            if (checkInput(a, size) != -1) {
                 // Creates a new KNN problem, solves it and prints the answer to the screen -
                 // the label of the K nearest neighbors to the given vector according to the given distance function:
                Knn answer(db, distance, k, a);
